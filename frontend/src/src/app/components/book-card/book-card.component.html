@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-grid-list cols="44" rowHeight="150px">
+    <mat-grid-tile [colspan]="4" [rowspan]="1">
+      <img mat-card-lg-image class="card-image" 
+      [src]="book.smallThumbnail ? book.smallThumbnail : '../../../assets/book-cover.jpg'">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="38" [rowspan]="1" >
+      <div layout="row"  [style.width]="'100%'" [style.height]="'100%'">
+        <div class="grid-tile-header" layout="row" >
+            <h1><b>{{book.title}}</b></h1>
+        </div>
+        <div *ngIf="book.subtitle" class="grid-tile-body" layout="row"  >
+            <h3> {{book.subtitle}}</h3>
+        </div>
+        <div class="grid-tile-footer"  layout="row" >
+            <h4><b>Authors:</b> {{getAuthors()}}</h4>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1" >
+      <button mat-icon-button class="like-button" [color]="buttonLikeColor" (click)="like()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
