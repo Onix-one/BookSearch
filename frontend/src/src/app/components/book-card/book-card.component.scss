@@ -1,0 +1,52 @@
+h1 {
+    margin-bottom: 0% !important;
+}
+
+h4 {
+    padding-top: 2%;
+}
+
+mat-grid-list {
+    min-width: 100%;
+}
+
+mat-card {
+    margin-bottom: 2%;
+}
+
+.grid-tile-header {
+    padding-left: 2%;
+    width: 100%;
+    height: 30% !important;
+    text-align: start;
+}
+
+.grid-tile-body {
+    padding-left: 2%;
+    width: 100%;
+    height: 40% !important;
+}
+
+.grid-tile-footer {
+
+    padding-left: 2%;
+    width: 100%;
+    height: 30% !important;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+
+.like-button:focus,
+:focus-visible {
+    outline: none;
+}
+
+.card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}

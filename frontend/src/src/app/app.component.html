@@ -1,0 +1,45 @@
+<div class="toolbar" role="banner">
+  <img width="40" alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+  <span>Welcome to book search page!</span>
+  <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+
+  <div class="content-header">
+    <h1><b>Books</b></h1>
+  </div>
+  
+
+  <div class="card search-card">
+    <form class="example-form" #searchForm="ngForm" (keyup.enter)="getBooks(searchForm.value)">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input matInput ngModel placeholder="" value="" name="search">
+        <mat-icon class="search-icon" matSuffix (click)="getBooks(searchForm.value)">search</mat-icon>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div *ngIf="books" class="card">
+    <div class="card-container">
+      <div class="card-header">
+        <div class="card-header-text">
+          <h1>Result of search "{{resultOfSearch}}"</h1>
+        </div>
+       
+        <div class="sort-button">
+          <button mat-stroked-button [matMenuTriggerFor]="menu">Sort by</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="sortByAuthor()">author</button>
+            <button mat-menu-item (click)="sortByAlphabetically()">alphabetically</button>
+          </mat-menu>
+        </div>
+      </div>
+      <div  *ngFor="let book of books | async">
+        <app-book-card [book]="book"></app-book-card>
+      </div>
+    </div>
+  </div>
+</div>
